@@ -5,17 +5,11 @@ WORKDIR /usr/src/myapp
 
 
 RUN cd /usr/src/myapp
-RUN wget https://github.com/krazyideas/frontend/archive/v0.0.3.tar.gz
-RUN tar --strip-component 1 -zxvf v0.0.3.tar.gz
-RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
+RUN wget https://github.com/krazyideas/frontend/archive/v0.0.4.tar.gz
+RUN tar --strip-component 1 -zxvf v0.0.4.tar.gz
 
 # Satisfy dependencies
 RUN npm install
 
-RUN chmod +x jq-linux64
-
-ADD run.sh /usr/src/myapp
-#CMD ls -alth conf/
-
 EXPOSE 3000
-CMD ./run.sh
+CMD npm start
